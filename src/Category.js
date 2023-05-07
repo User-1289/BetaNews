@@ -105,10 +105,6 @@ await getSelCat(category);
     }
   }
 
- // const delCategory = () => {
- //   deleteContainer(true);
- // };
-
   function displayCat(categoryVal) 
   {
       props.newsName(categoryVal);
