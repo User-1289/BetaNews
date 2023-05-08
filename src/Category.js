@@ -63,11 +63,10 @@ try
 	const response = await fetch(url, options);
 	const result = await response.text();
 
-  const jsonBad = JSON.parse(result); // Parse the JSON string into a JavaScript object
+  const jsonBad = JSON.parse(result); 
+ isBad = jsonBad['is-bad']; 
 
- isBad = jsonBad['is-bad']; // Access the value of the 'is-bad' property using bracket notation
-
-console.log(isBad); // Output: true
+console.log(isBad); 
 if(isBad===true)
 {
   alert("You requested inappropriate category")
@@ -81,9 +80,9 @@ if(isBad===true)
 }
 let newArr = [...catArr];
 newArr.push(category);
-if(newArr.length>5)
+if(newArr.length>10)
 {
-  alert("You can only create 5 categories")
+  alert("You can only create 10 categories")
   setCategory('');
   return;
 }
@@ -111,7 +110,7 @@ await getSelCat(category);
    // alert(isMobile)
     if(isMobile===true)
     {
-    document.getElementById('root').style.opacity = "1"
+        document.getElementById('root').style.opacity = "1"
         document.querySelector(".sidebar").style.display = "none"
         document.querySelector(".category-txt").style.display = "none"    
         document.querySelector(".menu-cl").style.display = "inline"

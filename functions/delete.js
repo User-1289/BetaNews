@@ -1,10 +1,20 @@
 //const delCol = require("./models/allnews");
 
-exports.handler = (event, context) => {
-  return{
-    statusCode:200,
-    body:JSON.stringify({message: "I am going to delete"})
+exports.handler = async (event, context) => {
+  try {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "I am going to delete" }),
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Internal server error" }),
+    };
   }
+};
+
  // try {
  //   let delVar = JSON.parse(event.body).categoryName;
 //
@@ -22,4 +32,3 @@ exports.handler = (event, context) => {
  //     body: JSON.stringify({ error: "Unable to delete item" })
  //   };
  // }
-}
