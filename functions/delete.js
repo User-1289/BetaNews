@@ -1,4 +1,5 @@
 const delCol = require("./models/allnews");
+const mongoose = require("mongoose")
 const dbSchema = new mongoose.Schema({
   author: String,
   content: String,
