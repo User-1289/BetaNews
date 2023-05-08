@@ -153,7 +153,7 @@ await getSelCat(category);
   async function deleteData()
   {
     alert('going to delete')
-  let responce = await fetch('/.netlify/functions/delete-news', {
+  let responce = await fetch('/.netlify/functions/delete', {
     method: 'POST',
     body: JSON.stringify({ categoryName: orgCat}),
   })
