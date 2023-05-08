@@ -154,7 +154,7 @@ await getSelCat(category);
     alert('going to delete')
   let responce = await fetch('/.netlify/functions/delete', {
     method: 'POST',
-    body: JSON.stringify({ categoryName: orgCat}),
+    body: JSON.stringify({ categoryName: orgCat.toLowerCase()}),
   })
     const delData = await responce.json();
     console.log(delData)

@@ -1,7 +1,38 @@
-//const delCol = require("./models/allnews");
+const delCol = require("./models/allnews");
+const dbSchema = new mongoose.Schema({
+  author: String,
+  content: String,
+  description: String,
+  publishedAt: String,
+  title: String,
+  url: String,
+  urlToImage: String,
+});
 
 exports.handler = async (event, context) => {
+  let delCat = JSON.parse(event.body).categoryName;
   try {
+    await mongoose.connect(process.env.DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    const filter = { _id: '645686c39e2459f0b58b16f7' };
+// Specify the array field and the value to delete
+const update = { $pull: { Category: delCat } };
+const result = await delCat.updateOne(filter, update);
+
+  console.log(`Updated ${result.nModified} document(s)`);
+
+  let selCol = mongoose.model(delCat+'-news', dbSchema)
+
+  await selCol.deleteMany({})
+  .then(() => {
+    console.log('All documents deleted!');
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  delete mongoose.connection.models[delCat+'-news'];
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "I am going to delete" }),
