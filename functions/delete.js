@@ -1,4 +1,4 @@
-const delCol = require("./models/allnews");
+//const delCol = require("./models/allnews");
 
 exports.handler = (event, context) => {
   return{
