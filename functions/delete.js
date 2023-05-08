@@ -25,18 +25,19 @@ const result = await delCol.updateOne(filter, update);
   console.log(`Updated ${result.nModified} document(s)`);
 
   let selCol = mongoose.model(delCat+'-news', dbSchema)
-
-  await selCol.deleteMany({})
-  .then(() => {
-    console.log('All documents deleted!');
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-  delete mongoose.connection.models[delCat+'-news'];
+//
+  //await selCol.deleteMany({})
+  //.then(() => {
+  //  console.log('All documents deleted!');
+  //})
+  //.catch((error) => {
+  //  console.error(error);
+  //});
+  await selCol.collection.drop();
+    console.log('Collection dropped successfully.');
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "I am going to delete" }),
+      body: JSON.stringify({ message: "Successfully deleted" }),
     };
   } catch (error) {
     console.log(error);
