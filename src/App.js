@@ -69,7 +69,7 @@ function App(props)
              <a rel="noreferrer" target="_blank" href={obj.url} key={index}><h2>{obj.title}</h2></a>
              <details>
               <summary>view more</summary>
-              <div>obj.description</div>
+              <div>{obj.description}</div>
              </details>
               <hr/>
           </div>
