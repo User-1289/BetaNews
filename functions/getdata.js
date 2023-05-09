@@ -80,7 +80,7 @@ exports.handler = async (event, context) => {
     let newsArr;
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${newsVar}&langauge=en&apiKey=eab1631abf374798bc855fffdc90194f`
+        `https://newsapi.org/v2/everything?q=${newsVar}&langauge=en&apiKey=27c7158d2aa84e4fb8eaaac70115d729`
       );
       newsArr = response.data.articles;
       for (let i = 0; i <= 19; i++) 

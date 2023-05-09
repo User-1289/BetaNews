@@ -67,6 +67,10 @@ function App(props)
             <img alt='not found' width='400' height='200' src={obj.urlToImage}/>
             <div className='author-txt'>{obj.author}</div>
              <a rel="noreferrer" target="_blank" href={obj.url} key={index}><h2>{obj.title}</h2></a>
+             <details>
+              <summary>view more</summary>
+              <div>this is for testing</div>
+             </details>
               <hr/>
           </div>
           ))}
