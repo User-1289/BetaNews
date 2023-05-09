@@ -162,7 +162,7 @@ await getSelCat(category);
 }
   return (
     <>
-      <div className='category-txt'>
+      <div className='category-txt'><br/>
         <div className='input-container'>
         <input placeholder='add your interest' id="category-input" onChange={setCatVal} value={category} />
         <span onClick={saveCategory} className="material-symbols-outlined">

@@ -18,6 +18,7 @@ background: none;
     display: inline;
     border-radius: 10px;
     cursor: pointer;
+    margin: 15%;
   }
   
   .sidebar a:hover {
