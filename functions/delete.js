@@ -17,10 +17,10 @@ exports.handler = async (event, context) => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    const filter = { _id: '645686c39e2459f0b58b16f7' };
-// Specify the array field and the value to delete
-const update = { $pull: { Category: delCat } };
-const result = await delCol.updateOne(filter, update);
+    const filter = { _id: '645686c39e2459f0b58b16f7', Category: delCat };
+    const update = { $pull: { Category: delCat } };
+    const result = await delCol.updateOne(filter, update);
+    
 
   console.log(`Updated ${result.nModified} document(s)`);
 
