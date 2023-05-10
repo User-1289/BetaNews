@@ -12,13 +12,14 @@ const dbSchema = new mongoose.Schema({
 
 exports.handler = async (event, context) => {
   let delCat = JSON.parse(event.body).categoryName;
+  let delWord = delCat.charAt(0).toUpperCase() + delCat.slice(1) + "Col";
   try {
     await mongoose.connect(process.env.DB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    const filter = { _id: '645686c39e2459f0b58b16f7', Category: delCat };
-    const update = { $pull: { Category: delCat } };
+    const filter = { _id: '645686c39e2459f0b58b16f7', Category: delWord };
+    const update = { $pull: { Category: delWord } };
     const result = await delCol.updateOne(filter, update);
     
 
