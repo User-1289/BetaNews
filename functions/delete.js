@@ -26,14 +26,7 @@ exports.handler = async (event, context) => {
   console.log(`Updated ${result.nModified} document(s)`);
 
   let selCol = mongoose.model(delCat+'-news', dbSchema)
-//
-  //await selCol.deleteMany({})
-  //.then(() => {
-  //  console.log('All documents deleted!');
-  //})
-  //.catch((error) => {
-  //  console.error(error);
-  //});
+
   await selCol.collection.drop();
     console.log('Collection dropped successfully.');
     return {
@@ -49,20 +42,4 @@ exports.handler = async (event, context) => {
   }
 };
 
- // try {
- //   let delVar = JSON.parse(event.body).categoryName;
-//
- //   // Perform delete operation using delCol
-//
- //   return {
- //     statusCode: 200,
- //     body: JSON.stringify({ message: "Successfully deleted item" })
- //   };
- // } catch (error) {
- //   console.error("Error deleting item:", error);
-//
- //   return {
- //     statusCode: 500,
- //     body: JSON.stringify({ error: "Unable to delete item" })
- //   };
- // }
+

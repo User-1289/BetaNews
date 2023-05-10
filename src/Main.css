@@ -34,7 +34,7 @@ width: 100%;
   }
   .news-container a{
     transition: font-size 0.3s ease;
-      color:white;
+      color:black;
       width:100%;
   }
   .news-container img{
