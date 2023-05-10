@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
     console.log('Collection dropped successfully.');
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Successfully deleted" }),
+      body: JSON.stringify({ message: "Successfully deleted", code:delCat })
     };
   } catch (error) {
     console.log(error);
