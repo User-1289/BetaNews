@@ -14,6 +14,14 @@ const createSchema = new mongoose.Schema({
 });
 
 exports.handler = async (event, context) => {
+  const today = new Date();
+const year = today.getFullYear();
+const month = today.getMonth() + 1
+const day = today.getDate()
+let numDay = Number(day-1)
+let todayDate = year + '-' + month + '-' + day
+let yesterdayDate = year + '-' + month + '-' + numDay
+
   let newsVar = JSON.parse(event.body).newsVar;
  // console.log(news)
   let isExisting = false;
@@ -79,9 +87,10 @@ exports.handler = async (event, context) => {
     let createCol = mongoose.model(newsVar + "-news", createSchema);
     let newsArr;
     try {
-      const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${newsVar}&langauge=en&apiKey=27c7158d2aa84e4fb8eaaac70115d729`
-      );
+      const response = await axios.get(`https://newsapi.org/v2/everything?q=${newsVar}&from=${yesterdayDate}&to=${todayDate}&sortBy=publishedAt&language=en&apiKey=27c7158d2aa84e4fb8eaaac70115d729`)
+    //  const response = await axios.get(
+    //    `https://newsapi.org/v2/everything?q=${newsVar}&langauge=en&apiKey=27c7158d2aa84e4fb8eaaac70115d729`
+    //  );
       newsArr = response.data.articles;
       for (let i = 0; i <= 19; i++) 
       {
