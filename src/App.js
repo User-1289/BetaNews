@@ -65,7 +65,7 @@ function App(props)
         {arr.map((obj, index) => (
           <div key={index}>
             <img alt='not found' width='400' height='200' src={obj.urlToImage}/>
-            <div className='author-txt'>{obj.source.name}</div>
+            <div className='author-txt'>{obj.author}</div>
              <a rel="noreferrer" target="_blank" href={obj.url} key={index}><h2>{obj.title}</h2></a>
              <span>
              <details>
