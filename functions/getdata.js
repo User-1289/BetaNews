@@ -87,7 +87,7 @@ let yesterdayDate = year + '-' + month + '-' + numDay
     let createCol = mongoose.model(newsVar + "-news", createSchema);
     let newsArr;
     try {
-      const response = await axios.get(`https://newsapi.org/v2/everything?q=${newsVar}&from=${yesterdayDate}&to=${todayDate}&sortBy=publishedAt&language=en&apiKey=27c7158d2aa84e4fb8eaaac70115d729`)
+      const response = await axios.get(`https://newsapi.org/v2/everything?q=${newsVar}&from=${yesterdayDate}&to=${todayDate}&sortBy=publishedAt&language=ml&apiKey=27c7158d2aa84e4fb8eaaac70115d729`)
     //  const response = await axios.get(
     //    `https://newsapi.org/v2/everything?q=${newsVar}&langauge=en&apiKey=27c7158d2aa84e4fb8eaaac70115d729`
     //  );
