@@ -30,7 +30,7 @@ background: none;
   .cancel-cl{
     display: none;
   }
-  @media (max-width: 768px) 
+  @media (max-width: 800px) 
   {
     .sidebar{
       display: none;
