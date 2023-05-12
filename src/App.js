@@ -3,11 +3,19 @@ import './Main.css';
 import Sidebar from './Sidebar'
 import Category from './Category';
 
-//import { useRoute } from 'react-router5';
-//import styles from './App.module.css'
-
 function App(props) 
 {
+  const [lastScrollX, setLastScrollX] = useState(0);
+
+  function handleScroll() {
+    const currentScrollX = window.scrollX;
+    if (currentScrollX > lastScrollX) {
+      // Scrolled right
+      // Call your function here
+      console.log('Scrolled right!');
+    }
+    setLastScrollX(currentScrollX);
+  }
   const [news, setNews] = useState("News");
   const [arr, setArr] = useState([]);
   const [newsType, setNewsType] = useState("World")
@@ -21,6 +29,20 @@ function App(props)
       }
   }, [catArr]);
 
+useEffect(() =>
+{
+  async function defaultNews()
+  {
+  let responce = await fetch('/.netlify/functions/getdata', {
+    method: 'POST',
+    body: JSON.stringify({ newsVar: 'world', uniqueKey:process.env.REACT_APP_UNIQUE_KEY}),
+  })
+    const data = await responce.json();
+   //return
+    setArr(data);
+  }
+  defaultNews()
+}, [])
   async function getNews(event) {
     try {
       const news = event.target.innerText;
@@ -61,7 +83,7 @@ function App(props)
       <Category newsName={name=> setNews(name.charAt(0).toUpperCase() + name.slice(1))} sendNews={news => setCatArr(news)}/> 
       <div className='align-news'>
         <center>
-      <div className='news-container'>
+      <div onScroll={handleScroll} className='news-container'>
         {arr.map((obj, index) => (
           <div key={index}>
             <img alt='not found' width='400' height='200' src={obj.urlToImage}/>
@@ -70,10 +92,11 @@ function App(props)
              <span>
              <details>
               <summary>view more</summary>
-              <div>{obj.description}</div>
+              <div >{obj.description}</div>
              </details>
              </span>
               <hr/>
+              <span className='ad-container'></span>
           </div>
           ))}
       </div>
