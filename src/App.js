@@ -8,6 +8,10 @@ import Category from './Category';
 
 function App(props) 
 {
+  useEffect(() =>
+  {
+    console.log(process.env.UNIQUE_KEY)
+  }, [])
   const [news, setNews] = useState("News");
   const [arr, setArr] = useState([]);
   const [newsType, setNewsType] = useState("World")
