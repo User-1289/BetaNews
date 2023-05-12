@@ -24,7 +24,7 @@ let yesterdayDate = year + '-' + month + '-' + numDay
 
   let newsKey = JSON.parse(event.body).uniqueKey
 
-  if(newsKey!="abcd1234buq3gewfyr47tfyu64264378")
+  if(newsKey!=process.env.REACT_APP_UNIQUE_KEY)
   {
     return{
       statusCode:500,

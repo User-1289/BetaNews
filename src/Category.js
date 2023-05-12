@@ -95,7 +95,7 @@ await getSelCat(category);
     try {
       let response = await fetch('/.netlify/functions/getdata', {
         method: 'POST',
-        body: JSON.stringify({ newsVar: catVal, uniqueKey:process.env.UNIQUE_KEY}),
+        body: JSON.stringify({ newsVar: catVal, uniqueKey:process.env.REACT_APP_UNIQUE_KEY}),
       });
       const data = await response.json();
       setNewsData(data);
@@ -154,7 +154,7 @@ await getSelCat(category);
     alert('going to delete')
   let responce = await fetch('/.netlify/functions/delete', {
     method: 'POST',
-    body: JSON.stringify({ categoryName: orgCat.toLowerCase(), uniqueKey:process.env.UNIQUE_KEY}),
+    body: JSON.stringify({ categoryName: orgCat.toLowerCase(), uniqueKey:process.env.REACT_APP_UNIQUE_KEY}),
   })
     const delData = await responce.json();
     console.log(delData)

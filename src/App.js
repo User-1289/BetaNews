@@ -8,11 +8,6 @@ import Category from './Category';
 
 function App(props) 
 {
-  useEffect(() =>
-  {
-    console.log(process.env.UNIQUE_KEY)
-    console.log(typeof process.env.UNIQUE_KEY)
-  }, [])
   const [news, setNews] = useState("News");
   const [arr, setArr] = useState([]);
   const [newsType, setNewsType] = useState("World")
@@ -40,7 +35,7 @@ function App(props)
      // const response = await fetch(`/.netlify/functions/${lNews}`);
      let responce = await fetch('/.netlify/functions/getdata', {
       method: 'POST',
-      body: JSON.stringify({ newsVar: lNews, uniqueKey:process.env.UNIQUE_KEY}),
+      body: JSON.stringify({ newsVar: lNews, uniqueKey:process.env.REACT_APP_UNIQUE_KEY}),
     })
       const data = await responce.json();
      //return
