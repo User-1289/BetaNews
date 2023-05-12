@@ -35,7 +35,7 @@ function App(props)
      // const response = await fetch(`/.netlify/functions/${lNews}`);
      let responce = await fetch('/.netlify/functions/getdata', {
       method: 'POST',
-      body: JSON.stringify({ newsVar: lNews}),
+      body: JSON.stringify({ newsVar: lNews, uniqueKey:process.env.UNIQUE_KEY}),
     })
       const data = await responce.json();
      //return

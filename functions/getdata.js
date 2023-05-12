@@ -22,6 +22,15 @@ let numDay = Number(day-1)
 let todayDate = year + '-' + month + '-' + day
 let yesterdayDate = year + '-' + month + '-' + numDay
 
+  let newsKey = JSON.parse(event.body).uniqueKey
+
+  if(newsKey!="abcd1234buq3gewfyr47tfyu64264378")
+  {
+    return{
+      statusCode:500,
+      body:JSON.stringify({message: "You don't have the rights to use this endpoint"})
+    }
+  }
   let newsVar = JSON.parse(event.body).newsVar;
  // console.log(news)
   let isExisting = false;

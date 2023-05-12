@@ -11,6 +11,17 @@ const dbSchema = new mongoose.Schema({
 });
 
 exports.handler = async (event, context) => {
+
+  let newsKey = JSON.parse(event.body).uniqueKey
+
+  if(newsKey!="abcd1234buq3gewfyr47tfyu64264378")
+  {
+    return{
+      statusCode:500,
+      body:JSON.stringify({message: "You don't have the rights to use this endpoint"})
+    }
+  }
+  
   let delCat = JSON.parse(event.body).categoryName;
   let delWord = delCat.charAt(0).toUpperCase() + delCat.slice(1) + "Col";
   try {
