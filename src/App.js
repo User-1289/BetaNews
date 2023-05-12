@@ -12,7 +12,7 @@ function App(props)
     if (currentScrollX > lastScrollX) {
       // Scrolled right
       // Call your function here
-      console.log('Scrolled right!');
+      alert('Scrolled right!');
     }
     setLastScrollX(currentScrollX);
   }
