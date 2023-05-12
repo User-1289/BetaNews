@@ -11,6 +11,7 @@ function App(props)
   useEffect(() =>
   {
     console.log(process.env.UNIQUE_KEY)
+    console.log(typeof process.env.UNIQUE_KEY)
   }, [])
   const [news, setNews] = useState("News");
   const [arr, setArr] = useState([]);
